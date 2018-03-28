@@ -1,24 +1,27 @@
-# README
+Multithreaded Multitenancy
+---
+Versioni gemme:
+Rails 5.1.5, Puma 3.11.3.<br/>
+apartment-323fdfc1a379 (branch flexible-switching di mikecmpbll)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ruby 2.4.1 p111
 
-Things you may want to cover:
+Creare tre db:
 
-* Ruby version
+    tenant1_development
+    tenant2_development
+    tenant3_development
 
-* System dependencies
+bundle exec rake db:migrate
 
-* Configuration
+Aggiungere a /etc/hosts
 
-* Database creation
+    127.0.0.1 tenant1.com
+    127.0.0.1 tenant2.com
+    127.0.0.1 tenant3.com
 
-* Database initialization
+`bundle exec rails s`
 
-* How to run the test suite
+...E visitare url(s):
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[tenant1](http://tenant1.com:3000), [tenant2](http://tenant2.com:3000), [tenant3](http://tenant3.com:3000)
